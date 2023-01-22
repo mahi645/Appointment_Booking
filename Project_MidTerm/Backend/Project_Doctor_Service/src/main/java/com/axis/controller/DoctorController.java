@@ -63,4 +63,20 @@ public class DoctorController {
 		List<Doctor> doctor=doctorService.findByDepartment(department);
 		return new ResponseEntity<List<Doctor>>(doctor,HttpStatus.OK);
 	}
+	@PostMapping("/validate")
+	   public String validateUser(@RequestBody Doctor user){
+		   String msg = "";	
+		   try {
+			   Doctor userData = doctorService.findByUsernameAndPassword(user.getUsername(),user.getPassword());
+			   if( user.getUsername().equals(userData.getUsername()) && user.getPassword().equals(userData.getPassword())) {
+					 msg = "valid";
+				   }else {
+					   return "invalid";
+		       } 
+		   }catch(Exception ex) {
+			   	msg ="invalid";
+		   } 	   
+		   
+		return msg; 		   
+	   }
 }

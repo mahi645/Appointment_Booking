@@ -15,6 +15,7 @@ public interface AppointmentService {
 	public Appointment updateStatus(int id,Appointment appointment);
 	public void deleteById(int id);
 	public List<Appointment> getAppointmentsByDoctor(String name);	
+	public List<Appointment> findByNameOfDoctorAndDepartment(String nameOfDoctor,String department);
 	
 
 }

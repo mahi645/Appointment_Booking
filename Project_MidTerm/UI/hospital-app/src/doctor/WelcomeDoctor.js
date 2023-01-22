@@ -19,8 +19,8 @@ return(
             </Nav>
             
             <Nav>  
-                <Nav.Link href='/user/doctors'>Doctors</Nav.Link>
-                <Nav.Link href='/appointments'>Appointments</Nav.Link>
+                <Nav.Link href='/doctor/doctors'>Doctors</Nav.Link>
+                <Nav.Link href='/view/appointments'>Appointments</Nav.Link>
                 <Nav.Link href="/welcome">Sign out</Nav.Link>  
                
                

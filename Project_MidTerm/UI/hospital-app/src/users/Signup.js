@@ -52,10 +52,7 @@ function Signup(){
                 <label>Email</label>
                 <input type="email" className="form-control" placeholder="Email" onChange={(e)=>setemail(e.target.value)} />
             </div>
-            <div className="form-group">
-                <label>Role</label>
-                <input type="text" className="form-control" placeholder="Enter role" onChange={(e)=>setrole(e.target.value)} />
-            </div>
+            
             <div className="form-group">
                 <button id="login-submit" type="submit" className="btn btn-dark btn-lg btn-block" onClick={register}>Submit</button>
             </div>

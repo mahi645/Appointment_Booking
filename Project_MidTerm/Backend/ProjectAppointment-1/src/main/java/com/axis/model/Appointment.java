@@ -20,7 +20,9 @@ public class Appointment {
 	@GeneratedValue
 	private int id;
 	private Timestamp createdAt=new Timestamp(System.currentTimeMillis());
+	private String patientName;
 	private String nameOfDoctor;
+	private String department;
 	private int age;
 	private String problem;
 	private LocalDate appointmentDate;
@@ -30,7 +32,7 @@ public class Appointment {
 		// TODO Auto-generated constructor stub
 	}
 	public Appointment(Timestamp createdAt, String nameOfDoctor, int age, String problem,
-			LocalDate appointmentDate, Time appointmentTime, AppointmentStatus status) {
+			LocalDate appointmentDate, Time appointmentTime,String patientName, AppointmentStatus status,String department) {
 		super();
 		this.createdAt = createdAt;
 		this.nameOfDoctor = nameOfDoctor;
@@ -39,14 +41,18 @@ public class Appointment {
 		this.appointmentDate = appointmentDate;
 		this.appointmentTime = appointmentTime;
 		this.status = status;
+		this.department=this.department;
+		this.patientName=this.patientName;
 	}
-	public Appointment(String nameOfDoctor, int age, String problem, LocalDate appointmentDate, Time appointmentTime) {
+	public Appointment(String nameOfDoctor,String patientName,String department, int age, String problem, LocalDate appointmentDate, Time appointmentTime) {
 		super();
 		this.nameOfDoctor = nameOfDoctor;
 		this.age = age;
 		this.problem = problem;
 		this.appointmentDate = appointmentDate;
 		this.appointmentTime = appointmentTime;
+		this.department=this.department;
+		this.patientName=this.patientName;
 	}
 	public int getId() {
 		return id;
@@ -95,6 +101,18 @@ public class Appointment {
 	}
 	public void setStatus(AppointmentStatus status) {
 		this.status = status;
+	}
+	public String getDepartment() {
+		return department;
+	}
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+	public String getPatientName() {
+		return patientName;
+	}
+	public void setPatientName(String patientName) {
+		this.patientName = patientName;
 	}
 	
 	

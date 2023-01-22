@@ -29,7 +29,6 @@ public class UserServiceImpl implements UserService {
 		user.setName(userDetails.getName());
 		user.setEmail(userDetails.getEmail());
 		user.setPassword(userDetails.getPassword());
-		user.setRole(userDetails.getRole());
 		user.setUsername(userDetails.getUsername());
 		return userRepository.save(user);
 	}
@@ -58,6 +57,13 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public UserDetails findByUsernameAndPassword(String username,String password) {
 		UserDetails user=userRepository.findByUsernameAndPassword(username, password);
+		return user;
+	}
+
+	@Override
+	public UserDetails findById(long id) {
+		// TODO Auto-generated method stub
+		UserDetails user=userRepository.findById(id).orElseThrow();
 		return user;
 	}
 

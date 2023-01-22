@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -19,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.axis.model.Appointment;
 import com.axis.service.AppointmentService;
-
+@CrossOrigin(origins="*")
 @RestController
 @RequestMapping("/api/v3")
 public class AppointmentController {
@@ -30,12 +31,12 @@ public class AppointmentController {
 	public ResponseEntity<List<Appointment>> getAllAppointment(){
 		return new ResponseEntity<List<Appointment>>(appointmentService.getAllAppointments(),HttpStatus.OK);
 	}
-	@GetMapping("/appointment/{id}")
+	@GetMapping("/appointment1/{id}")
 	public ResponseEntity<Optional<Appointment>> getAppointmentById(@PathVariable int id){
 		Optional<Appointment> appointment=appointmentService.getAppointmentById(id);
 		return new ResponseEntity<Optional<Appointment>>(appointment,HttpStatus.OK);
 	}
-	@PostMapping("/appointment")
+	@PostMapping("/appointment/{nameOfDoctor}/{department}")
 	public ResponseEntity<Appointment> addAppintment(@RequestBody Appointment appointment){
 		return new ResponseEntity<Appointment>(appointmentService.addAppointment(appointment),HttpStatus.OK);
 	}
@@ -54,13 +55,17 @@ public class AppointmentController {
 		return new ResponseEntity<Appointment>(appointmentService.updateStatus(id, appointment),HttpStatus.OK);
 		
 	}
-	@DeleteMapping("/appointment")
+	@DeleteMapping("/appointment/{id}")
 	public void deleteById(@PathVariable int id) {
 		appointmentService.deleteById(id);
 	}
-	@GetMapping("appointmentName/{nameOfDoctor}")
+	@GetMapping("/appointmentName/{nameOfDoctor}")
 	public  ResponseEntity<List<Appointment>> getAppointmentsByDoctor(@PathVariable String nameOfDoctor){
 		return new ResponseEntity<List<Appointment>>(appointmentService.getAppointmentsByDoctor(nameOfDoctor),HttpStatus.OK);
 	}
-
+	@GetMapping("/bookings/{nameOfDoctor}/{department}")
+	public ResponseEntity<List<Appointment>> getappointmentBookings(@PathVariable String nameOfDoctor,@PathVariable String department){
+		return new ResponseEntity<List<Appointment>>(appointmentService.findByNameOfDoctorAndDepartment(nameOfDoctor, department),HttpStatus.OK);
+		
+	}
 }

@@ -6,7 +6,7 @@ const AdminUsers=()=>{
     const navigate = useNavigate();
 
     const LoadDetail = (id) => {
-        navigate("/edit/" + id);
+        navigate(`/view/users/${id}`);
     }
     const editUser=(id)=>{
         navigate(`/edit/users/${id}`)
@@ -25,12 +25,10 @@ const AdminUsers=()=>{
         <div className="container">
         <div className="card">
             <div className="card-title">
-                <h2>Users Listing</h2>
+                <h2 style={{textAlign:'center'}}>Users Listing</h2>
             </div>
             <div className="card-body">
-                <div className="divbtn">
-                    <Link to="/adduser" className="btn btn-info">Add New</Link>
-                </div>
+            
                 <table className="table table-bordered">
                     <thead className="bg-dark text-white">
                         <tr>
@@ -39,8 +37,9 @@ const AdminUsers=()=>{
                             <td>UserName</td>
                             <td>Email</td>
                             <td>Password</td>
-                            <td>Role</td>
-                            <td>Edit</td>
+                            <td>Actions</td>
+                            
+                            
                             
                         </tr>
                     </thead>
@@ -54,9 +53,8 @@ const AdminUsers=()=>{
                                     <td>{item.username}</td>
                                     <td>{item.email}</td>
                                     <td>{item.password}</td>
-                                    <td>{item.role}</td>
+                                    <td><button className="btn btn-info" onClick={() => { LoadDetail(item.id) }}>View</button></td>
                                     
-                                    <td><button onClick={()=>editUser(item.id)} className='btn btn-info'>Edit</button></td>
                                 </tr>
                             ))
                         }

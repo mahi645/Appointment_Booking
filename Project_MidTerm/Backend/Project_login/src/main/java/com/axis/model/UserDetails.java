@@ -17,26 +17,21 @@ public class UserDetails {
     private String username;
     private String email;
     private String password;
-    private String role;
+    
 	public UserDetails() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public UserDetails(long id, String name, String username, String email, String password,String role) {
+	public UserDetails(long id, String name, String username, String email, String password) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.username = username;
 		this.email = email;
 		this.password = password;
-		this.role=role;
+		
 	}
-	public String getRole() {
-		return role;
-	}
-	public void setRole(String role) {
-		this.role = role;
-	}
+	
 	public long getId() {
 		return id;
 	}

@@ -31,6 +31,14 @@ public class UserController {
 		return new ResponseEntity<UserDetails>(user,HttpStatus.OK);
 		
 	}
+
+	@GetMapping("/view/{id}")
+	public ResponseEntity<UserDetails> View(@PathVariable long id){
+		UserDetails user=userService.findById(id);
+		return new ResponseEntity<UserDetails>(user,HttpStatus.OK);
+		
+	}
+	
 	@GetMapping("/signin")
 	public ResponseEntity<List<UserDetails>> signin1(){
 		List<UserDetails> user=userService.getAllUsers();

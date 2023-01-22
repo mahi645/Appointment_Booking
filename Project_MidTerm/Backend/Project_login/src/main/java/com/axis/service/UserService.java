@@ -13,4 +13,5 @@ public interface UserService {
 	public UserDetails addUser(UserDetails userDetails);
 	public List<UserDetails> getAllUsers();
 	public String deleteUsers(long id);
+	public UserDetails findById(long id);
 }

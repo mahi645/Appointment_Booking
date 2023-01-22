@@ -46,7 +46,7 @@ function Login(){
          <div id='register'>
             <div id='outer'>
         
-            <h3 id="register-heading">Login</h3>
+            <h3 id="register-heading"> User Login</h3>
 
         <div className="form-group">
             <label>Username</label>

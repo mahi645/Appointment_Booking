@@ -47,6 +47,7 @@ public class AppointmentServiceimpl implements AppointmentService {
 		appointment1.setAppointmentDate(appointment.getAppointmentDate());
 		appointment1.setAppointmentTime(appointment.getAppointmentTime());
 		appointment1.setProblem(appointment.getProblem());
+		appointment1.setDepartment(appointment.getDepartment());
 		
 		return appointmentRepository.save(appointment);
 	}
@@ -74,6 +75,12 @@ public class AppointmentServiceimpl implements AppointmentService {
 	public List<Appointment> getAppointmentsByDoctor(String name) {
 		// TODO Auto-generated method stub
 		return appointmentRepository.findAllByNameOfDoctor(name);
+	}
+
+	@Override
+	public List<Appointment> findByNameOfDoctorAndDepartment(String nameOfDoctor, String department) {
+		// TODO Auto-generated method stub
+		return appointmentRepository.findByNameOfDoctorAndDepartment(nameOfDoctor, department);
 	}
 
 }

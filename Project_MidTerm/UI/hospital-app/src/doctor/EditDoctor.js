@@ -24,7 +24,7 @@ const EditDoctor=()=>{
         experience:experience};
       
 
-      fetch(`http://localhost:9008/api/v1/update/${id}`,{
+      fetch(`http://localhost:9008/api/v1/doctor2/${id}`,{
         method:"PUT",
         headers:{"Content-Type":"application/json",
                 "Access-Control-Allow-Origin":"*"},
@@ -32,7 +32,7 @@ const EditDoctor=()=>{
       }).then(response=>response.json())
       .then(json=>console.log(json));
       alert("updated successfully");
-      navigate("/admin/users")
+      navigate("/admin/doctors")
 
 
     }

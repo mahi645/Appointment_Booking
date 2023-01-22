@@ -14,4 +14,5 @@ public interface DoctorService {
 	public String deleteDoctor(int id);
 	public List<Doctor> findByName(String name);
 	public List<Doctor> findByDepartment(String department);
+	public Doctor findByUsernameAndPassword(String username,String password);
 }

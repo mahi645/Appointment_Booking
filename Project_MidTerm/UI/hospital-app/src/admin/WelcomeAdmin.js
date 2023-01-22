@@ -20,7 +20,7 @@ return(
             <Nav>  
                 <Nav.Link href='/admin/doctors'>Doctors</Nav.Link>
                 <Nav.Link href='/admin/users'>Users</Nav.Link>
-                <Nav.Link href='/user/appointments'>Appointments</Nav.Link>
+                <Nav.Link href='/view/appointments'>Appointments</Nav.Link>
                 <Nav.Link href="/welcome">Sign out</Nav.Link>  
                
                

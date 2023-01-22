@@ -72,5 +72,11 @@ public class DoctorServiceimpl implements DoctorService {
 		return doctorRepository.findByDepartment(department);
 	}
 
+	@Override
+	public Doctor findByUsernameAndPassword(String username, String password) {
+		// TODO Auto-generated method stub
+		return doctorRepository.findByUsernameAndPassword(username, password);
+	}
+
 	
 }

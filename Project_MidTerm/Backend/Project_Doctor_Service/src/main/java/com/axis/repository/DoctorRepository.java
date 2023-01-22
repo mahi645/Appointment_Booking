@@ -11,5 +11,6 @@ import com.axis.model.Doctor;
 public interface DoctorRepository extends JpaRepository<Doctor,Integer>{
 	public List<Doctor> findByName(String name);
 	public List<Doctor> findByDepartment(String department);
+	public Doctor findByUsernameAndPassword(String username,String password);
 
 }

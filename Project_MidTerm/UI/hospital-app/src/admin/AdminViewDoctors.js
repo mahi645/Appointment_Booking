@@ -5,12 +5,16 @@ const AdminViewDoctors=()=>{
     const [empdata, empdatachange] = useState(null);
     const navigate = useNavigate();
 
-    const LoadDetail = (id) => {
-        navigate("/edit/" + id);
+    const Viewfunction = (id) => {
+        navigate(`/view/doctor/${id}`);
     }
     const LoadEdit = (id) => {
         navigate("/edit/" + id);
     }
+    const editDoctor=(id)=>{
+        navigate(`/edit/doctor/${id}`)
+    }
+    
     const Removefunction = (id) => {
         if (window.confirm('Do you want to remove?')) {
             fetch("http://localhost:9008/api/v1/doctor/" + id, {
@@ -28,7 +32,7 @@ const AdminViewDoctors=()=>{
 
 
     useEffect(() => {
-        fetch("http://localhost:9008/api/v1/doctors").then((res) => {
+        fetch("http://localhost:8086/api/v2/doctors").then((res) => {
             return res.json();
         }).then((resp) => {
             empdatachange(resp);
@@ -70,8 +74,10 @@ const AdminViewDoctors=()=>{
                                     <td>{item.experience}</td>
                                     <td>{item.password}</td>
                                     
-                                    <td><button id="#btn" className="btn btn-primary " onClick={() => { LoadEdit(item.id) }}>Edit</button>
-                                    <button className="btn btn-success" onClick={() => { Removefunction(item.id) }}>Delete</button></td>
+                                    <td><button id="#btn" className="btn btn-primary " onClick={() => { editDoctor(item.id) }}>Edit</button>
+                                    <button className="btn btn-success" onClick={() => { Removefunction(item.id) }}>Delete</button>
+                                    <button className="btn btn-danger" onClick={() => { Viewfunction(item.id) }}>View</button>
+                                    </td>
                                     
                                 </tr>
                             ))

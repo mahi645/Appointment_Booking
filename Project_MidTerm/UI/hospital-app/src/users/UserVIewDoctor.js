@@ -8,6 +8,9 @@ const UserViewDoctor=()=>{
     const LoadDetail = (id) => {
         navigate("/edit/" + id);
     }
+    const bookAppointment=(name,department)=>{
+        navigate(`/book/appointment/${name}/${department}`)
+    }
     useEffect(() => {
         fetch("http://localhost:9008/api/v1/doctors").then((res) => {
             return res.json();
@@ -30,7 +33,8 @@ const UserViewDoctor=()=>{
                             <td>ID</td>
                             <td>Name</td>
                             <td>Department</td>
-                            <td>Experience</td> 
+                            <td>Experience</td>
+                             <td>Book Appointment</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -42,6 +46,9 @@ const UserViewDoctor=()=>{
                                     <td>{item.name}</td>
                                     <td>{item.department}</td>
                                     <td>{item.experience}</td>
+                                    <td>
+                                        <button id="#btn" className="btn btn-primary " onClick={() => { bookAppointment(item.name,item.department) }}>Book</button>
+                                    </td>
                                 </tr>
                             ))
                         }

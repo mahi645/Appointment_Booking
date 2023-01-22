@@ -14,9 +14,14 @@ import AdminUsers from './admin/AdminUsers';
 import EditUser from './users/EditUser';
 import AppointmentBooking from './users/AppointmentBooking';
 import EditDoctor from './doctor/EditDoctor';
-import AdminLogin from './admin/AdminLogin';
 import DoctorLogin from './doctor/DoctorLogin';
-
+import AdminLogin from './admin/AdminLogin';
+import ViewAppointments from './admin/ViewAppointments';
+import ViewDoctor from './doctor/ViewDoctor'
+import ViewUsers from './users/ViewUsers';
+import About from './admin/About';
+import Doctor from './doctor/Doctor';
+import Doctor1 from './doctor/Doctors1';
 
 function App() {
   return (
@@ -35,10 +40,17 @@ function App() {
             <Route path="/welcome/admin" element={<WelcomeAdmin/>}> </Route>
             <Route path="/admin/users" element={<AdminUsers/>}> </Route>
             <Route path="/edit/users/:id" element={<EditUser/>}> </Route>
-            <Route path='/appoointment' element={<AppointmentBooking/>}></Route>
-            <Route path='/edit/doctor:id' element={<EditDoctor/>}></Route>
+            <Route path='/edit/doctor/:id' element={<EditDoctor/>}></Route>
+            <Route path="/doctor/login" element={<DoctorLogin/>}> </Route>
             <Route path='/admin/login' element={<AdminLogin/>}></Route>
-            <Route path='/doctor/login' element={<DoctorLogin/>}></Route>
+            <Route path='/book/appointment/:nameOfDoctor/:department' element={<AppointmentBooking/>}></Route>
+            <Route path='/view/appointments' element={<ViewAppointments/>}></Route>
+            <Route path='/view/doctor/:id' element={<ViewDoctor/>}></Route>
+            <Route path='/view/users/:id' element={<ViewUsers/>}></Route>
+            <Route path='/about' element={<About/>}></Route>
+            <Route path='/doctor/doctors' element={<Doctor/>}></Route>
+            <Route path='/doctor1/:id' element={<Doctor1/>}></Route>
+
           </Routes>
          </BrowserRouter>
          </>

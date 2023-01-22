@@ -16,24 +16,27 @@ function Welcome(){
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />  
           <Navbar.Collapse id="responsive-navbar-nav">  
             <Nav className="me-auto">  
-              <Nav.Link href="#features">About</Nav.Link>  
+              <Nav.Link href="/about">About</Nav.Link>  
               <Nav.Link href="#pricing">Contacts</Nav.Link>  
               <NavDropdown title="Centres of Excellence" id="collasible-nav-dropdown">  
                 <NavDropdown.Item href="#action/3.1">Pain Management</NavDropdown.Item>  
-                <NavDropdown.Item href="#action/3.2">Kidney Transplant</NavDropdown.Item>  
+                <NavDropdown.Item href="#action/3.2">Neurology</NavDropdown.Item>  
                 <NavDropdown.Item href="#action/3.3">Cardiology</NavDropdown.Item> 
                 <NavDropdown.Item href="#action/3.3">Orthopedics</NavDropdown.Item> 
                 <NavDropdown.Item href="#action/3.3">Oncology</NavDropdown.Item> 
-                <NavDropdown.Item href="#action/3.3">ICU</NavDropdown.Item> 
+                <NavDropdown.Item href="#action/3.3">Gynecology</NavDropdown.Item> 
                 <NavDropdown.Item href="#action/3.3">Emergency</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">Dermatology</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">Radiology</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.3">Gastroenterology</NavDropdown.Item>  
 
                 <NavDropdown.Divider />  
-                <NavDropdown.Item href="#action/3.4">Separated Item</NavDropdown.Item>  
+                <NavDropdown.Item href="#action/3.4">General Medicine</NavDropdown.Item>  
               </NavDropdown>  
             </Nav>  
             <Nav>  
                 <NavDropdown title="Login" id="collasible-nav-dropdown">
+                  
                     <NavDropdown.Item href="/admin/login">Admin</NavDropdown.Item>
                     <NavDropdown.Item href="/doctor/login">Doctor</NavDropdown.Item>
                     <NavDropdown.Item href="/user/login">User</NavDropdown.Item>
