@@ -1,0 +1,39 @@
+server:
+  port: 8086
+spring:
+  application:
+    name: API_GATEWAY 
+  cloud:
+    gateway:
+      routes:
+      - id: ADMIN-SERVICE
+        uri: 
+           lb://ADMIN-SERVICE
+        predicates:
+        - Path=/api/v2/** 
+        
+      - id: APPOINTMENT-SERVICE
+        uri: 
+           lb://APPOINTMENT-SERVICE
+        predicates:
+        - Path=/api/v3/** 
+      - id: USER-SERVICE
+        uri: 
+           lb://USER-SERVICE
+        predicates:
+        - Path=/api/v6/** 
+      - id: DOCTOR-SERVICE
+        uri: 
+           lb://DOCTOR-SERVICE
+        predicates:
+        - Path=/api/v1/** 
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    instance-id: ${spring.application.name}:${random.value}
+      
+     
